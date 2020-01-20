@@ -26,7 +26,7 @@ namespace WindowsFormsApp3
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Start();
-            serialPort1.Open();
+            //serialPort1.Open();
         }
 
         private void BtnAddStudent_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace WindowsFormsApp3
                 {
 
                     checkFemale.Checked = false;
-                    lsbxStudents.Items.Add(student);
+                    listbox.Items.Add(student);
 
                     AddStudentMale();
                     clearItems();
@@ -53,7 +53,7 @@ namespace WindowsFormsApp3
                 {
 
                     checkMale.Checked = false;
-                    lsbxStudents.Items.Add(student);
+                    listbox.Items.Add(student);
                     AddStudentFemale();
                     clearItems();
                 }
@@ -66,11 +66,11 @@ namespace WindowsFormsApp3
 
         private void BtnRemoveStudent_Click(object sender, EventArgs e)
         {
-            string student = textBox1.Text;
+            string student = textBox2.Text;
 
             if (studentName.Contains(student))
             {
-                lsbxStudents.Items.Remove(student);
+                listbox.Items.Remove(student);
                 studentName.Remove(student);
 
 
@@ -107,18 +107,18 @@ namespace WindowsFormsApp3
         {
             lblTime.Text = (DateTime.Now.ToString());
 
-            string command = serialPort1.ReadExisting().Trim();
+            //string command = serialPort1.ReadExisting().Trim();
 
-            if (command == "Alarm")
-            {
-                pictureBox3.BackColor = Color.Red;
-            }
+            //if (command == "Alarm")
+            //{
+            //    pictureBox3.BackColor = Color.Red;
+            //}
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             timer1.Stop();
-            serialPort1.Close();
+            //serialPort1.Close();
         }
 
         void clearItems()
